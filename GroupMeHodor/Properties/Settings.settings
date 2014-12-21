@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GroupMeHodor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BotId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BOT_ID</Value>
+    </Setting>
+    <Setting Name="BotName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BOT_NAME</Value>
+    </Setting>
+    <Setting Name="EndPointUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://api.groupme.com/v3/bots/post</Value>
+    </Setting>
+    <Setting Name="IgnoreNames" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
