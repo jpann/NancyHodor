@@ -64,6 +64,7 @@
     <Compile Include="GroupMe\GroupMeMessage.cs" />
     <Compile Include="GroupMe\GroupMeMessenger.cs" />
     <Compile Include="GroupMe\IGroupMeMessenger.cs" />
+    <Compile Include="Hodor.cs" />
     <Compile Include="Http\IHttpClient.cs" />
     <Compile Include="Http\SimpleHttpClient.cs" />
     <Compile Include="IndexModule.cs" />
@@ -81,6 +82,9 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="settings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup />

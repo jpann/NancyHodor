@@ -10,21 +10,14 @@ namespace GroupMeHodor
 
     public class IndexModule : NancyModule
     {
-        private string[] mHodors = new string[]
-        {
-            "Hodor",
-            "Hodor!",
-            "HODOR",
-            "Hodor?",
-            "Hodooorrr",
-            "HODOR!!!"
-        };
-
-        public IndexModule(IGroupMeMessenger groupMeMessenger, Random random)
+        public IndexModule(
+            IGroupMeMessenger groupMeMessenger, 
+            Hodor hodor,
+            Random random)
         {
             Get["/"] = parameters =>
             {
-                return "NOPE";
+                return HttpStatusCode.NotImplemented;
             };
              
             Post["/"] = parameters =>
@@ -45,21 +38,15 @@ namespace GroupMeHodor
                         return HttpStatusCode.OK;
 
                 if (message.text.EndsWith("?"))
-                    if (random.Next(0, 1000) <= 10)
+                    if (random.Next(0, 1) <= 1)
                     {
-                        string hodor = this.GetRandomHodor(random);
-                        groupMeMessenger.SendMessage(hodor);
+                        string random_hodor = hodor.GetRandom();
+                        if (!string.IsNullOrEmpty(random_hodor))
+                            groupMeMessenger.SendMessage(random_hodor);
                     }
 
                 return HttpStatusCode.OK;
             };
-        }
-
-        private string GetRandomHodor(Random rand)
-        {
-            int index = rand.Next(0, this.mHodors.Length);
-
-            return this.mHodors[index];
         }
     }
 }

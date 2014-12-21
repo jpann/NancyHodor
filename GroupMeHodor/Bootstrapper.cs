@@ -34,6 +34,8 @@ namespace GroupMeHodor
                 .WithConstructorArgument("botName", Properties.Settings.Default.BotName)
                 .WithConstructorArgument("ignoreNames", ignoreNames)
                 .WithConstructorArgument("endPointUrl", Properties.Settings.Default.EndPointUrl);
+
+            existingContainer.Bind<Hodor>().ToSelf();
         }
 
         protected override void ConfigureRequestContainer(IKernel container, NancyContext context)
