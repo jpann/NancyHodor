@@ -32,7 +32,6 @@ namespace GroupMeHodor.GroupMe
             get { return this.mIgnoreNames; }
         }
 
-
         public GroupMeMessenger(
             string botId,
             string botName,
