@@ -38,7 +38,7 @@ namespace GroupMeHodor
                         return HttpStatusCode.OK;
 
                 if (message.text.EndsWith("?"))
-                    if (random.Next(0, 1) <= 1)
+                    if (random.Next(0, 100) <= 10)
                     {
                         string random_hodor = hodor.GetRandom();
                         if (!string.IsNullOrEmpty(random_hodor))
