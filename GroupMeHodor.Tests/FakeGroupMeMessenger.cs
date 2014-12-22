@@ -31,6 +31,32 @@ namespace GroupMeHodor.Tests
             get { return this.mIgnoreNames; }
         }
 
+        public FakeGroupMeMessenger(
+            string botId,
+            string botName,
+            string[] ignoreNames,
+            string endPointUrl,
+            IHttpClient httpClient)
+        {
+            if (string.IsNullOrEmpty(botId))
+                throw new ArgumentException("botId");
+
+            if (string.IsNullOrEmpty(botName))
+                throw new ArgumentException("botName");
+
+            if (string.IsNullOrEmpty(endPointUrl))
+                throw new ArgumentException("endPointUrl");
+
+            if (httpClient == null)
+                throw new ArgumentNullException("httpClient");
+
+            this.mBotId = botId;
+            this.mBotName = botName;
+            this.mIgnoreNames = ignoreNames;
+            this.mEndpointUrl = endPointUrl;
+            this.mHttpClient = httpClient;
+        }
+
         public bool SendMessage(string message)
         {
             if (string.IsNullOrEmpty(message))
