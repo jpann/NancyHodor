@@ -27,7 +27,11 @@ namespace GroupMeHodor
                 string request = this.Request.Body.AsString();
 
                 // Bind the request to GroupMeMessage
-                this.BindTo<GroupMeMessage>(message);
+                var msg = this.BindTo(message);
+
+                //TODO Need to use a Nancy model validator, eventually
+                if (message.id == null || message.group_id == null || message.name == null)
+                    return HttpStatusCode.NotAcceptable;
 
                 // Don't respond to ourself
                 if (message.name == groupMeMessenger.BotName)
