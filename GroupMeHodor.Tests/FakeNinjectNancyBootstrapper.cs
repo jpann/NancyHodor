@@ -21,8 +21,6 @@ namespace GroupMeHodor.Tests
         {
             // Perform registation that should have an application lifetime
 
-            StringCollection ignoreNames = new StringCollection();
-
             existingContainer.Bind<IHttpClient>()
                 .To<FakeHttpClient>();
 
@@ -30,7 +28,7 @@ namespace GroupMeHodor.Tests
                 .To<FakeGroupMeMessenger>()
                 .WithConstructorArgument("botId", "BOT_ID")
                 .WithConstructorArgument("botName", "BOT_NAME")
-                .WithConstructorArgument("ignoreNames", ignoreNames)
+                .WithConstructorArgument("ignoreNames", "Person1|Person2")
                 .WithConstructorArgument("endPointUrl", "https://api.groupme.com/v3/bots/post");
 
             existingContainer.Bind<Hodor>().ToSelf();
