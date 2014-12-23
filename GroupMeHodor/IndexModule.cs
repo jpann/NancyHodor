@@ -7,6 +7,7 @@ using Nancy.ModelBinding;
 namespace GroupMeHodor
 {
     using Nancy;
+    using Nancy.Validation;
 
     public class IndexModule : NancyModule
     {
@@ -26,11 +27,10 @@ namespace GroupMeHodor
 
                 string request = this.Request.Body.AsString();
 
-                // Bind the request to GroupMeMessage
-                var msg = this.BindTo(message);
+                // Bind and validate the request to GroupMeMessage
+                var msg = this.BindToAndValidate(message);
 
-                //TODO Need to use a Nancy model validator, eventually
-                if (message.id == null || message.group_id == null || message.name == null)
+                if (!ModelValidationResult.IsValid)
                     return HttpStatusCode.NotAcceptable;
 
                 // Don't respond to ourself

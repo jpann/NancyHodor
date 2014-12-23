@@ -2,9 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FluentValidation;
 
 namespace GroupMeHodor.GroupMe
 {
+    public class GroupMeMessageValidator : AbstractValidator<GroupMeMessage>
+    {
+        public GroupMeMessageValidator()
+        {
+            RuleFor(msg => msg.group_id).NotEmpty();
+            RuleFor(msg => msg.id).NotEmpty();
+            RuleFor(msg => msg.name).NotEmpty();
+            RuleFor(msg => msg.source_guid).NotEmpty();
+            RuleFor(msg => msg.text).NotEmpty();
+            RuleFor(msg => msg.user_id).NotEmpty();
+            RuleFor(msg => msg.created_at).NotEmpty();
+        }
+    }
+
     public class GroupMeMessage
     {
         public string name { get; set; }
